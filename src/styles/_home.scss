@@ -1,0 +1,120 @@
+.home {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $border-radius !important;
+  }
+  @include container;
+  .imageContainer {
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    grid-auto-rows: 250px;
+
+    @include breakpoint-down(xs) {
+      margin-top: 5rem;
+    }
+    .defaultInstro {
+      letter-spacing: 2px;
+      color: $light-gray;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .cardImg {
+    position: relative;
+    transition: all 0.7 ease-in;
+    overflow: hidden;
+    .name {
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      color: $text-light;
+      opacity: 0;
+      z-index: 3;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &__buttons {
+      position: absolute;
+      bottom: 10%;
+      height: 20%;
+      @include flex(column, space-around);
+      left: 0%;
+      transform: translatex(-20vw);
+      transition: all 0.5s ease-in-out;
+      z-index: 3;
+      a {
+        height: 25px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        i {
+          padding: 10px;
+          color: white;
+          border-radius: 0px 13px 13px 0px;
+          &.fa-download {
+            background-color: $bg-primary;
+          }
+          &.fa-trash {
+            background-color: $bg-secondary;
+          }
+        }
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0%;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: $border-radius !important;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    &:hover .overlay,
+    &:hover .name,
+    &:hover .cardImg__buttons {
+      opacity: 0.8;
+      transform: translateX(0);
+    }
+
+    @include breakpoint-up(sm) {
+      &:nth-child(1) {
+        grid-column: span 2 / auto;
+      }
+      &:nth-child(2) {
+        grid-row: span 2 / auto;
+        grid-column: span 2 / auto;
+      }
+
+      &:nth-child(3) {
+        grid-row: span 2 / auto;
+      }
+      &:nth-child(10) {
+        grid-column: span 2 / auto;
+      }
+    }
+    @include breakpoint-up(lg) {
+      &:nth-child(10) {
+        grid-column: span 1 / auto;
+      }
+    }
+    @include only-ipad {
+      &:nth-child(1) {
+        grid-column: span 3 / auto;
+      }
+      &:nth-child(9) {
+        grid-row: span 2 / auto;
+      }
+      &:nth-child(10) {
+        grid-column: span 2 / auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.addImage {
+  &__title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 10px;
+  }
+
+  .or {
+    text-align: center;
+    border: 1px solid;
+    padding: 5px 0px;
+    width: 42px;
+    margin: 2rem auto;
+    border-radius: 50%;
+    height: 37px;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  right: 0%;
+  width: 40%;
+  box-shadow: 0px 0px 10px silver;
+  z-index: 30;
+  background-color: lighten($light-gray, 25%);
+  margin: 1rem auto;
+  transition: all 0.7s ease-in-out;
+
+  transform: translateY(-100vh);
+
+  &.open {
+    transform: translateY(0vh);
+  }
+
+  @include breakpoint-down(md) {
+    top: 6%;
+    min-width: 80%;
+  }
+
+  @include breakpoint-down(md) {
+    top: 6%;
+    min-width: 90%;
+  }
+
+  &__container {
+    padding: 2rem 1rem;
+  }
+
+  .closeMenu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $bg-danger;
+    color: $text-light;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+
+  &__group {
+    margin: 1rem 0;
+
+    label {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: darken($light-gray, 40%);
+      font-size: 0.8rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 6vh;
+      padding-left: 10px;
+      margin: 1rem 0rem;
+      border: 1px solid lightgray;
+
+      &::-webkit-input-placeholder {
+        color: $light-gray;
+      }
+
+      &:focus {
+        outline: none;
+        border: 1px solid $bg-primary;
+      }
+    }
+  }
+
+  &__btnGroup {
+    @include flex(row, space-around);
+
+    button {
+      width: 100%;
+      margin-right: 10px;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      color: $text-light;
+      font-size: 1rem;
+      font-weight: bolder;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.7s ease-in-out;
+
+      &[type="submit"] {
+        background-color: $bg-primary;
+
+        &:hover {
+          background-color: lighten($bg-primary, 20%);
+        }
+      }
+
+      &[type="reset"] {
+        background-color: $bg-secondary;
+
+        &:hover {
+          background-color: lighten($bg-secondary, 20%);
+        }
+      }
+    }
+  }
+
+  .browseImages {
+    margin-bottom: 2rem;
+    .btn {
+      background-color: $bg-primary;
+      font-size: 1rem;
+      font-weight: bolder;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      outline: none;
+      width: 100%;
+      color: $text-light;
+      transition: background-color 0.7s ease-in-out;
+
+      &:hover {
+        background-color: lighten($bg-primary, 20%);
+      }
+    }
+  }
+}
